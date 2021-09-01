@@ -6,8 +6,8 @@ export const InfoVideojuegos = ({juego}) => {
             <img src={juego.imagen} className="card-img-top"/>
                 <div className="card-body">
                     <h5 className="card-title">{juego.nombre}</h5>
-                    <p class="card-text">Rating: {juego.rating}</p>
-                    <p class="card-text">Metacritic: {juego.metacritic}</p>
+                    <p className="card-text">Rating: {juego.rating}</p>
+                    <p className="card-text">Metacritic: {juego.metacritic}</p>
                 </div>
         </div>
     );
