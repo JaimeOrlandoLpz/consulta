@@ -4,10 +4,11 @@ import { useFetchVideojuegos } from './componentes/hooks/useFetchVideojuegos';
 import { ResultadoVideojuegos } from './componentes/ResultadoVideojuegos';
 import './index.css';
 import  {VideojuegosApp} from "./VideojuegosApp";
+import {GameCollectionApp} from './componentes/GameCollectionApp'
 
 ReactDOM.render(
   <React.StrictMode>
-    <VideojuegosApp/>
+    <GameCollectionApp/>
   </React.StrictMode>,
   document.getElementById('root')
 );
