@@ -1,13 +1,10 @@
 import React from 'react';
 import { useFetch } from './hooks/fetchGameId';
 
-
-//Recibe como argumento el género que se va utilizar para hacer la búsqueda de los videojuegos
-// utilizando el API de RAWG
 export const InfoVideojuegos = ({titulo, dispatch}) => {
 
 
-    const url = 'https://api.rawg.io/api/games/' + titulo + '?key=02798a8eb7994b06a56598fff263a25c';
+    const url = 'https://api.rawg.io/api/games/' + titulo + '?key=cdc87febef7e4446a853e5c829920d18';
 
     const { loading, info }  = useFetch(url);
 
@@ -24,14 +21,14 @@ export const InfoVideojuegos = ({titulo, dispatch}) => {
             
             
                 {loading ? (
-                        //Si loading es true, mostramos el mensaje 'loading'
+                        
                         <div key={titulo} className="alert alert-info text-center">
-                            Loading...
+                            Cargando...
                         </div>
                     ) 
                     : 
                     (
-                        //loaded  
+
                         <div key={info.id} className="card p-2 bd-highlight">
                            
                             <img src={info.background_image} className="card-img-top" alt="..."></img>
@@ -40,7 +37,7 @@ export const InfoVideojuegos = ({titulo, dispatch}) => {
                                     <p  className="card-text">Rating: {info.rating} <br>
                                         </br> Metacritic: {info.metacritic}</p>
                                     <button className="btn btn-danger" onClick={onClick}>
-                                        Eliminar Juego
+                                        Quitar de Colección
                                     </button>
                                     
                                 </div>

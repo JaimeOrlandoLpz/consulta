@@ -11,6 +11,5 @@ export const getVideojuegosByID = async (id) => {
         metacritic: respuestaJuego.metacritic
     }
 
-
     return juego;
 }
