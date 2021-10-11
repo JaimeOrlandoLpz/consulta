@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {InfoVideojuegos} from "./InfoVideojuegos";
 import { useFetchVideojuegos } from './hooks/useFetchVideojuegos';
 
+
 export const ResultadoVideojuegos = ({genero}) => {
     // useEffect(() => {
     //     getVideojuegos();

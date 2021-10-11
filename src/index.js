@@ -5,10 +5,12 @@ import { ResultadoVideojuegos } from './componentes/ResultadoVideojuegos';
 import './index.css';
 import  {VideojuegosApp} from "./VideojuegosApp";
 import {GameCollectionApp} from './componentes/GameCollectionApp'
+import { GameLibraryApp } from './componentes/GameLibraryApp';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <GameCollectionApp/>
+    <GameLibraryApp></GameLibraryApp>
   </React.StrictMode>,
   document.getElementById('root')
 );
