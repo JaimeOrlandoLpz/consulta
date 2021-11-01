@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { GameCollectionApp } from '../componentes/GameCollectionApp';
 import { VideojuegosApp } from '../VideojuegosApp';
 import { WelcomePage } from '../componentes/WelcomePage';
+import { BuscadorScreen } from '../componentes/BuscadorScreen';
 
 
 export const SecondaryRouter = () => {
@@ -12,7 +13,8 @@ export const SecondaryRouter = () => {
         <div>
             <Switch>
             <Route exact path="/coleccion" component={GameCollectionApp} />
-            <Route exact path="/videojuegos" component={VideojuegosApp} />                     
+            <Route exact path="/videojuegos" component={VideojuegosApp} />      
+            <Route exact path="/buscar" component={BuscadorScreen} />                
                 
             </Switch>
         </div></>);
