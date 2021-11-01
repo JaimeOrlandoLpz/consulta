@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from './hooks/context/UserContext';
+
 
 
 export const WelcomePage = ({ history }) => {
+
+    const { user, setUser } = useContext(UserContext);
 
     const hardcodedUser = {
         username: 'Jorge',
@@ -34,6 +38,10 @@ export const WelcomePage = ({ history }) => {
     const doStart = (event) => {
         event.preventDefault();
         if(hardcodedUser.username === userData.username && hardcodedUser.password === userData.password){
+
+            setUser(userData);
+            console.log("Here: " + user.username);
+            
             history.replace('/videojuegos');
         }
         else{
