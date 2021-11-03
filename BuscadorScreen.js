@@ -1,18 +1,27 @@
-import React from 'react'; 
-import {juegos} from '../../datos/juegos';
-import {useForm} from '../../hooks/useForm';
-import {GameCard} from '../games/GameCard';
+import {React,useMemo} from 'react'; 
+import { getGamesBySearch} from './getGamesBySearch';
+import {useForm} from './hooks/useForm';
+
  
 export const BuscadorScreen = () => { 
+    let busqueda = '';
+    let infoGames = '';
 
-	const juegosFirmados = juegos;
-	const [formValues, handleInputChange]=useForm({
-		criterioBuqueda:''
-	});
-	const {criterioBusqueda} = formValues;
+    const [formValues, handleInputChange] = useForm({
+        criterioBusqueda: busqueda,
+    });
+
+    const { criterioBusqueda } = formValues;
+
+    const filteredGames = useMemo(
+        () => getGamesBySearch(busqueda, infoGames),
+        [busqueda, infoGames]
+    );
+    console.log(filteredGames);
+
     const handleBusqueda = (e) => { 
-         e.preventDefault();
-	    console.log(criterioBusqueda);
+        e.preventDefault();
+        console.log(e);
     } 
  
     return ( 
@@ -28,10 +37,7 @@ export const BuscadorScreen = () => {
                         <input  
                             type="text" 
                             className="form-control"  
-                            name="criterioBusqueda"
-	    		value={criterioBusqueda}
-	    		onChange={handleInputChange}
-	    		autoComplete="off"
+                            name="criterioBusqueda" 
                         /> 
  
                         <button type="submit" 
@@ -42,9 +48,11 @@ export const BuscadorScreen = () => {
                 </div> 
  
                 <div className="col-7"> 
-                    <h4>Resultado</h4> 
-                    <br /> 
- 
+                    <h4>Resultado</h4>
+                    <br />
+                    {
+                    // filteredGames.map(funcion que crea la tarjeta)
+                    }
                 </div> 
             </div> 
         </> 
