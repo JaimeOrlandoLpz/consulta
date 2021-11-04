@@ -7,7 +7,6 @@ export const GameCollection = ({titulos, dispatch}) => {
     return (
         <div className="d-flex container-md text-center flex-row3 bd-highlight align-items-center mb-3" >
                 {
-                    
                     titulos.map( titulo => {
                         return <InfoVideojuegos  titulo={titulo}  dispatch={dispatch} />
                 })

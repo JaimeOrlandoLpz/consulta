@@ -8,7 +8,6 @@ export const GameCollectionApp = () => {
 
     const [titulos, dispatch] = useReducer(collectionReducer, [], init);
 
-
     return ( 
         <>
             <div className = "jumbotron jumbotron-fluid" >
@@ -18,7 +17,7 @@ export const GameCollectionApp = () => {
                 </div> 
             </div> 
 
-            <GameCollectionAdd dispatch = {dispatch} />
+            <GameCollectionAdd dispatch = {dispatch}/>
             <GameCollection titulos={titulos} dispatch={dispatch}/>
             
         </>

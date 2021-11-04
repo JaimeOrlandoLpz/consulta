@@ -1,11 +1,34 @@
-import React from 'react'; 
+import {React,useMemo} from 'react'; 
+import { useLocation } from 'react-router';
+import { getGamesBySearch} from './getGamesBySearch';
+import {useForm} from './hooks/useForm';
+import queryString from 'query-string';
 
  
-export const BuscadorScreen = () => { 
+export const BuscadorScreen = ({history}) => { 
+    let infoGames = '';
+    let location = useLocation();
+    console.log('location.search = ' + location.search);
 
- 
-    const handleBusqueda = () => { 
-         
+    const {busqueda = ''} = queryString.parse(location.search);
+
+    console.log('busuqeda = ' + busqueda);
+
+    const [formValues, handleInputChange] = useForm({
+        criterioBusqueda: busqueda,
+    });
+
+    const { criterioBusqueda } = formValues;
+
+    const filteredGames = useMemo(
+        () => getGamesBySearch(busqueda, infoGames),
+        [busqueda, infoGames]
+    );
+
+    const handleBusqueda = (e) => { 
+        e.preventDefault();
+        console.log(criterioBusqueda);
+        history.push(`?busqueda=${criterioBusqueda}`);
     } 
  
     return ( 
@@ -21,7 +44,9 @@ export const BuscadorScreen = () => {
                         <input  
                             type="text" 
                             className="form-control"  
-                            name="criterioBusqueda" 
+                            name="criterioBusqueda"
+                            value ={criterioBusqueda}
+                            onChange = {handleInputChange}
                         /> 
  
                         <button type="submit" 
@@ -32,9 +57,11 @@ export const BuscadorScreen = () => {
                 </div> 
  
                 <div className="col-7"> 
-                    <h4>Resultado</h4> 
-                    <br /> 
- 
+                    <h4>Resultado</h4>
+                    <br />
+                    {
+                    // filteredGames.map(funcion que crea la tarjeta)
+                    }
                 </div> 
             </div> 
         </> 
