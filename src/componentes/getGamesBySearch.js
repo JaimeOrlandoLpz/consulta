@@ -1,6 +1,6 @@
 import { getVideojuegosByID } from "./GetVideoJuegosByID";
 
-export const getGamesBySearch = (busqueda = '') => {
+export var getGamesBySearch = (busqueda = '') => {
     if (busqueda == ''){
         return [];
     }
@@ -14,20 +14,13 @@ export const getGamesBySearch = (busqueda = '') => {
 
             // índice del juego en local storage
             if(juego=== busquedaInt){
-                console.log("Yaaay");
                 let jueguito;
                 getVideojuegosByID(juego).then((res)=>{
                     jueguito = res;
                     console.log(res);
+                    query.push(jueguito);
                 });
-                
-
             }
-
-            else{
-                console.log("Not Found Yet");
-            }
-
         }
         return query;
     }
